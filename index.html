@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src='./Test1.js'></script>
+    <script src='./Data.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.css' rel='stylesheet' />
     <style>
         body {margin: 0; padding: 0;}
@@ -23,36 +23,37 @@
         bearing: -17.6,
     });
 
-    map.on('load', function() {
+   map.on('load', function() {
 
     map.addLayer({
         "id": "data",
         "type": "fill-extrusion",
         "source": {
             'type': 'geojson',
-            'data': './Test_Assignment3.geojson'
+            'data': './NAMEOFFILE.geojson'
         },
         'layout': {
             'visibility': 'visible'
             },
         'paint': {
-                'fill-extrusion-color' : {
-                    'property': 'colour',
-                    'type': 'identity'
-                },
-                'fill-extrusion-height' : {
-                    'type': 'identity',
-                    'property': 'height'
-                },
-                'fill-extrusion-base' : {
-                    'type': 'identity',
-                    'property': 'base_height'
-                },
-                 'fill-extrusion-opacity': 1
+            'fill-extrusion-color' : {
+                'property': 'colour',
+                'type': 'identity'
+            },
+            'fill-extrusion-height' : {
+                'type': 'identity',
+                'property': 'height'
+            },
+            'fill-extrusion-base' : {
+                'type': 'identity',
+                'property': 'base_height'
+            },
+            'fill-extrusion-opacity': 1
             }
 
+        });
     });
-});
+
 
 </script>
 </body>
