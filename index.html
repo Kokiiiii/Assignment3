@@ -9,20 +9,9 @@
     <link href='https://www.mapbox.com/base/latest/base.css' rel='stylesheet' /
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.css' rel='stylesheet' />
     <style>
-        #map { position:absolute; top:0; bottom:0; width:100%; }
+        #map { position:absolute; width:80%; align:center;}
             * {
             box-sizing: border-box;
-        }
-        .column {
-            float: left;
-            width: 50%;
-            padding: 5px;
-        }
-        /* Clearfix (clear floats) */
-        .row::after {
-            content: "";
-            clear: both;
-            display: table;
         }
         .center {
             display: block;
@@ -201,6 +190,7 @@
 <h1 align="center">Insufficient Job Opportunity</h1>
     
 <div id='map' style="width:80%;height:400px;" align="center"></div>
+
 <script>
 mapboxgl.accessToken = 'pk.eyJ1Ijoia29raWlpaWkiLCJhIjoiY2pseHZjeG0yMGY4MTNxbjh1ZDVzdG96NCJ9.eDyz5Sx3ONed7FZ0alczuw';
 var map = new mapboxgl.Map({
