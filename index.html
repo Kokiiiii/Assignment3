@@ -103,19 +103,29 @@
           background-color: #555;
         }
         body { margin-left:20%; margin-right:20%; padding:0; float:center; font-size:20px; font-family: Helvetica;}
-        #map { width: 100%; height: 400px; }
 
     </style>
 </head>
 <body>
-
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     
-    
-<div class="column">
-        <div id='map'></div>
+<div class="navbar">
+    <a href="https://kokiiiii.github.io/CODE1230_URBAN_MODELLING/">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">Projects 
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="https://kokiiiii.github.io/CODE1230_URBAN_MODELLING/Assignment0">Assignment 0</a>
+              <a href="https://timothy03062.github.io/CODE-1230-URBAN-Modelling/References.html">Assignment 1</a>
+              <a href="https://kokiiiii.github.io/Assignment2/">Assignment 2</a>
+              <a href="https://kokiiiii.github.io/Assignment3/">Assignment 3</a>
+        </div>
+    </div> 
 </div>
+<h1 align="center">Map and Data Analysis</h1>
     
-<div id='map'></div>
+<div id='map' style="width:80%;height:400px;"></div>
 <script>
 mapboxgl.accessToken = 'pk.eyJ1Ijoia29raWlpaWkiLCJhIjoiY2pseHZjeG0yMGY4MTNxbjh1ZDVzdG96NCJ9.eDyz5Sx3ONed7FZ0alczuw';
 var map = new mapboxgl.Map({
