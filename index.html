@@ -237,23 +237,13 @@ var map = new mapboxgl.Map({
 // The 'building' layer in the mapbox-streets vector source contains building-height
 // data from OpenStreetMap.
 map.on('load', function() {
-    // Insert the layer beneath any symbol layer.
-    var layers = map.getStyle().layers;
-
-    var labelLayerId;
-    for (var i = 0; i < layers.length; i++) {
-        if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
-            labelLayerId = layers[i].id;
-            break;
-        }
-    }
 
     map.addLayer({
         "id": "data",
         "type": "fill-extrusion",
         "source": {
             'type': 'geojson',
-            'data': './NAMEOFFILE2.geojson'
+            'data': './NAMEOFFILE.geojson'
         },
         'layout': {
             'visibility': 'visible'
@@ -278,6 +268,19 @@ map.on('load', function() {
 });
 
 
+// The 'building' layer in the mapbox-streets vector source contains building-height
+// data from OpenStreetMap.
+map.on('load', function() {
+    // Insert the layer beneath any symbol layer.
+    var layers = map.getStyle().layers;
+
+    var labelLayerId;
+    for (var i = 0; i < layers.length; i++) {
+        if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
+            labelLayerId = layers[i].id;
+            break;
+        }
+    }
     map.addLayer({
         'id': 'map',
         'source': 'composite',
