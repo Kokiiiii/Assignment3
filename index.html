@@ -217,6 +217,8 @@ font-size: 30px;
 
 <h2>The CBD in Penrith </h2>
 <div id='map'></div>
+<br/>
+<br/>      
 <div id='map2'></div>
     
 <p margin-bottom="200px">This is the brief image of New CBD in the Western City of NSW. This is designed within the area of Penrith, which is located above Western Sydney Airport. This site was chosen based on the access to the public transportation systems. The access to the train is provided to this area and there is an airport which is not too far away from the site. The existence of the airport nearby can potentially attract both local and foreign businesses to the location. As there are more businesses attracted to the site, there will be more job opportunities for locals as the result. Therefore, this designed CBD may solve the problem of discrimination on people who are living in the rural areas by providing more varieties of jobs.</p>
@@ -274,32 +276,6 @@ map.addLayer({
              'fill-extrusion-opacity': 1
         }
 
-});
- map.addLayer({
-        'id': '3d-buildings',
-        'source': 'composite',
-        'source-layer': 'building',
-        'filter': ['==', 'extrude', 'true'],
-        'type': 'fill-extrusion',
-        'minzoom': 15,
-        'paint': {
-            'fill-extrusion-color': '#AAAAA',
-
-            // use an 'interpolate' expression to add a smooth transition effect to the
-            // buildings as the user zooms in
-            'fill-extrusion-height': [
-                "interpolate", ["linear"], ["zoom"],
-                15, 0,
-                15.05, ["get", "height"]
-            ],
-            'fill-extrusion-base': [
-                "interpolate", ["linear"], ["zoom"],
-                15, 0,
-                15.05, ["get", "min_height"]
-            ],
-            'fill-extrusion-opacity': .6
-        }
-    }, labelLayerId);
 });
 
 </script>
