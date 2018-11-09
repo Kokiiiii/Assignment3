@@ -234,9 +234,17 @@ var map = new mapboxgl.Map({
     container: 'map'
 });
 
-// The 'building' layer in the mapbox-streets vector source contains building-height
-// data from OpenStreetMap.
 map.on('load', function() {
+    // Insert the layer beneath any symbol layer.
+    var layers = map.getStyle().layers;
+
+    var labelLayerId;
+    for (var i = 0; i < layers.length; i++) {
+        if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
+            labelLayerId = layers[i].id;
+            break;
+        }
+    }
 
     map.addLayer({
         "id": "data",
@@ -293,30 +301,13 @@ map.on('load', function() {
             }
 
     });
-});
-   
-
-
-// The 'building' layer in the mapbox-streets vector source contains building-height
-// data from OpenStreetMap.
-map.on('load', function() {
-    // Insert the layer beneath any symbol layer.
-    var layers = map.getStyle().layers;
-
-    var labelLayerId;
-    for (var i = 0; i < layers.length; i++) {
-        if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
-            labelLayerId = layers[i].id;
-            break;
-        }
-    }
-    map.addLayer({
+        map.addLayer({
         'id': 'map',
         'source': 'composite',
         'source-layer': 'building',
         'filter': ['==', 'extrude', 'true'],
         'type': 'fill-extrusion',
-        'minzoom': 0,
+        'minzoom': 15,
         'paint': {
             'fill-extrusion-color': '#aaa',
 
@@ -336,6 +327,10 @@ map.on('load', function() {
         }
     }, labelLayerId);
 });
+});
+   
+
+
 
 </script>
    
